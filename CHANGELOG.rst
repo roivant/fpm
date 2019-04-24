@@ -1,7 +1,7 @@
 Release Notes and Change Log
 ============================
 
-1.11.1 (January 30, 2019)
+3.0.0 (April 24, 2019)
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Roivant fork begins here.
