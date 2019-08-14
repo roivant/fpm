@@ -1,6 +1,30 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+begin
+  class OutdatedDevopsVagrantError < ::RuntimeError; end
+  require 'devops-vagrant'
+  loaded_version = Gem.loaded_specs['devops-vagrant'].version
+  required_version = Gem::Version.create(ENV['MINIMUM_DEVOPS_VAGRANT'].to_s)
+  raise OutdatedDevopsVagrantError if required_version > loaded_version
+rescue LoadError, OutdatedDevopsVagrantError
+  if system '/opt/roivant/bin/ensure-roivant-vagrant-plugins'
+    puts <<~MSG
+
+      We noticed you were missing a required dependency, so installed it. You can
+      now re-run your command.
+
+        (You can hit the up-arrow to get to the last command, then hit <Enter>.)
+
+    MSG
+  end
+  exit 1
+end
+
+include Devops::Vagrant
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
 Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
