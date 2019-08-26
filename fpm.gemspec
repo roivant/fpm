@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.license = "MIT-like"
 
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = 'https://artifactory.vant.com/artifactory/api/gems/roivant-gems'
+    spec.metadata['allowed_push_host'] = 'https://roivant.jfrog.io/roivant/api/gems/gems-local'
   else
     raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
