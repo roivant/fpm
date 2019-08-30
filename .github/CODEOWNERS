@@ -1,13 +1,20 @@
 # Lines starting with '#' are comments.
 # Each line is a file pattern followed by one or more owners,
 # the last matching pattern has the most precendence.
+# https://help.github.com/en/articles/about-code-owners
+
+# Owner
 * @roivant/devops
+
+*.lock @roivant/devops @roivant/devops
+
+# Devops
 CODEOWNERS @roivant/devops
 /devops/ @roivant/devops
-/Berksfile* @roivant/devops
-/Gemfile* @roivant/devops
+/Berksfile @roivant/devops
+/Gemfile @roivant/devops
 /Jenkinsfile* @roivant/devops
-/Pipfile* @roivant/devops
-/Rakefile* @roivant/devops
+/Pipfile @roivant/devops
+/Rakefile @roivant/devops
 /repository_metadata.yaml @roivant/devops
 /Vagrantfile @roivant/devops
