@@ -3,3 +3,5 @@ owner: "@roivant/devops"
 version: 3.0.1
 billing_entity: devops
 application_name: fpm
+deploy:
+  network: internal-prod
