@@ -1,0 +1,12 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+      docker: 18
+  build:
+    commands:
+       # - yum update -y
+       - rpm -i https://$DEVOPS_ARTIFACTORY_ANON_USER:$DEVOPS_ARTIFACTORY_ANON_KEY@roivant.jfrog.io/roivant/rpm/roivant-artifactory-repo-0.0.4-1.x86_64.rpm
+       - gem install tasks --no-document --version '>= 1.11.37' --source https://$DEVOPS_ARTIFACTORY_ANON_USER:$DEVOPS_ARTIFACTORY_ANON_KEY@roivant.jfrog.io/roivant/api/gems/gems
+       - rake test:devops
